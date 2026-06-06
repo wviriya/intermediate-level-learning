@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Brain, Zap, Target, Eye, ChevronDown, ChevronUp, RotateCw } from 'lucide-react';
+import { Target, Eye, ChevronDown, ChevronUp } from 'lucide-react';
 
 const ScienceLessonApp = () => {
   const [currentLesson, setCurrentLesson] = useState(null);
@@ -1412,13 +1412,13 @@ const ScienceLessonApp = () => {
 
 
         PYRAMID OF BIOMASS:
-              /\
-             /  \  Carnivores (10 kg)
-            /────\
-           /  ▲▲▲ \  Herbivores (100 kg)
-          /─────────\
-         /  ▲▲▲▲▲▲▲ \  Plants (1000 kg)
-        /───────────── \
+              /
+             /   Carnivores (10 kg)
+            /────
+           /  ▲▲▲    Herbivores (100 kg)
+          /─────────
+         /  ▲▲▲▲▲▲▲    Plants (1000 kg)
+        /─────────────
       `,
 
       flashcards: [
