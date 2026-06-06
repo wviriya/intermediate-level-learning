@@ -477,12 +477,26 @@ const ScienceLessonApp = () => {
       `,
 
       flashcards: [
-        { q: "What is a force?", a: "A push, pull, or twist that causes change in motion, speed, or shape" },
-        { q: "What is friction?", a: "A contact force that opposes motion between surfaces" },
-        { q: "What is tension?", a: "A pulling force in ropes or cables" },
-        { q: "What is gravity?", a: "Non-contact force that pulls all objects toward Earth" },
-        { q: "Name 3 contact forces", a: "Friction, tension, normal force, applied force" },
-        { q: "Name 3 non-contact forces", a: "Gravity, magnetic force, electrostatic force" }
+        { q: "What is a force?", a: "A push, pull, or twist that acts on objects" },
+        { q: "How measured?", a: "In Newtons (N)" },
+        { q: "Force vector?", a: "Shows magnitude and direction" },
+        { q: "Friction?", a: "Contact force opposing motion" },
+        { q: "Causes friction?", a: "Surface roughness and attractions" },
+        { q: "Tension?", a: "Pulling force in ropes" },
+        { q: "Normal force?", a: "Perpendicular force from surface" },
+        { q: "Applied force?", a: "Direct push or pull" },
+        { q: "Gravity?", a: "Non-contact force toward Earth" },
+        { q: "Magnetic force?", a: "Non-contact force between magnets" },
+        { q: "Electrostatic?", a: "Non-contact force between charges" },
+        { q: "Reduce friction?", a: "Lubrication or smoothing" },
+        { q: "Static friction?", a: "Prevents starting motion" },
+        { q: "Kinetic friction?", a: "Opposes moving objects" },
+        { q: "Which larger?", a: "Static usually larger" },
+        { q: "Force diagrams?", a: "Show all forces with arrows" },
+        { q: "How cause motion?", a: "Unbalanced forces accelerate" },
+        { q: "SI unit?", a: "Newton (N) = kg⋅m/s²" },
+        { q: "Contact vs non-contact?", a: "Contact touches; non-contact at distance" },
+        { q: "Every force has?", a: "An equal and opposite pair" }
       ],
 
       quiz: [
