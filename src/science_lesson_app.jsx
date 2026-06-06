@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronRight, Brain, Zap, Target, Award, Volume2, Eye } from 'lucide-react';
+import React, { useState } from 'react';
+import { Brain, Zap, Target, Eye } from 'lucide-react';
 
 const ScienceLessonApp = () => {
-  const [currentWeek, setCurrentWeek] = useState(1);
   const [currentLesson, setCurrentLesson] = useState(null);
   const [showQuiz, setShowQuiz] = useState(false);
   const [quizScore, setQuizScore] = useState(0);
