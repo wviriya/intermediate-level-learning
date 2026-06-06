@@ -102,7 +102,15 @@ const ScienceLessonApp = () => {
 
       quiz: [
         { q: "Respiration mainly happens in...", opts: ["Lungs only", "Every cell", "Brain", "Stomach"], ans: 1 },
-        { q: "The equation for aerobic respiration is...", opts: ["Glucose only", "Glucose + O₂ → CO₂ + H₂O + Energy", "Just water", "Only in lungs"], ans: 1 }
+        { q: "The equation for aerobic respiration is...", opts: ["Glucose only", "Glucose + O₂ → CO₂ + H₂O + Energy", "Just water", "Only in lungs"], ans: 1 },
+        { q: "What is the difference between respiration and breathing?", opts: ["No difference", "Respiration is chemical, breathing is physical", "They happen in different organs", "Respiration is faster"], ans: 1 },
+        { q: "Where does gas exchange happen?", opts: ["Trachea", "Alveoli", "Bronchi", "Diaphragm"], ans: 1 },
+        { q: "Aerobic respiration requires...", opts: ["Only glucose", "Only oxygen", "Glucose and oxygen", "Carbon dioxide"], ans: 2 },
+        { q: "What are alveoli?", opts: ["Large tubes", "Tiny air sacs", "Muscles", "Blood vessels"], ans: 1 },
+        { q: "The respiratory system path is...", opts: ["Nose → Lungs → Stomach", "Nose → Trachea → Bronchi → Alveoli", "Mouth → Heart → Lungs", "Nose → Diaphragm → Lungs"], ans: 1 },
+        { q: "How many times does respiration happen?", opts: ["Only in lungs", "Only once per day", "Continuously in every cell", "Only during exercise"], ans: 2 },
+        { q: "Which gas is released from cells during respiration?", opts: ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"], ans: 2 },
+        { q: "What is the purpose of aerobic respiration?", opts: ["To breathe", "To release energy from glucose", "To cool the body", "To make muscles bigger"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -209,8 +217,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "When the diaphragm contracts, lungs...", opts: ["Shrink", "Expand", "Stay same size", "Get hard"], ans: 1 },
-        { q: "What happens during expiration?", opts: ["O₂ increases", "Diaphragm moves down", "Air is pushed out", "Ribs lift up"], ans: 2 }
+        { q: "When the diaphragm contracts, what happens?", opts: ["Lungs shrink", "Lungs expand and air enters", "Lungs stay same", "Heart beats faster"], ans: 1 },
+        { q: "What does 'inspiration' mean?", opts: ["Breathing out", "Breathing in", "Thinking deeply", "Exercise"], ans: 1 },
+        { q: "During expiration, the diaphragm...", opts: ["Contracts downward", "Relaxes and moves up", "Moves sideways", "Stays still"], ans: 1 },
+        { q: "Which muscles help the diaphragm?", opts: ["Arm muscles", "Intercostal muscles", "Leg muscles", "Heart"], ans: 1 },
+        { q: "What controls about 70% of breathing?", opts: ["Ribs", "Heart", "Diaphragm", "Lungs"], ans: 2 },
+        { q: "How does breathing happen?", opts: ["Lungs pull air in", "Diaphragm changes volume, changing pressure", "Heart pumps air", "Brain forces air"], ans: 1 },
+        { q: "In the lungs, air pressure is controlled by...", opts: ["Oxygen levels", "Volume changes", "Carbon dioxide", "Heart rate"], ans: 1 },
+        { q: "External intercostal muscles...", opts: ["Pull ribs down", "Lift ribs up and out", "Relax during breathing", "Contract during expiration"], ans: 1 },
+        { q: "What happens to chest volume during inspiration?", opts: ["Decreases", "Increases", "Stays same", "Moves sideways"], ans: 1 },
+        { q: "The breathing cycle is controlled by...", opts: ["Muscles pushing air", "Pressure differences", "Oxygen consumption", "Brain thinking"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -314,8 +330,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "Gas exchange in alveoli is called...", opts: ["Osmosis", "Active transport", "Diffusion", "Filtration"], ans: 2 },
-        { q: "Alveoli walls are so effective because they are...", opts: ["Very thick", "Very thin (1 cell)", "Muscular", "Hard"], ans: 1 }
+        { q: "What is diffusion?", opts: ["Osmosis", "Movement from high to low concentration", "Active transport", "Breathing"], ans: 1 },
+        { q: "How many alveoli are in human lungs?", opts: ["Thousands", "Millions (about 300 million)", "Billions", "Hundreds"], ans: 1 },
+        { q: "What is the surface area of alveoli?", opts: ["10 m²", "30 m²", "About 70 m²", "100 m²"], ans: 2 },
+        { q: "Alveoli walls are so effective because they are...", opts: ["Very thick", "Very thin (1 cell thick)", "Muscular", "Hard"], ans: 1 },
+        { q: "In alveoli, oxygen flows...", opts: ["From blood to air", "From air to blood", "In circles", "Out of the body"], ans: 1 },
+        { q: "In alveoli, carbon dioxide flows...", opts: ["From air to blood", "From blood to air", "Stays in blood", "Gets absorbed"], ans: 1 },
+        { q: "Why are alveoli surrounded by capillaries?", opts: ["For protection", "To carry away O₂ and bring CO₂", "To clean air", "To warm air"], ans: 1 },
+        { q: "What happens to oxygen after it diffuses into blood?", opts: ["It's stored", "Binds to hemoglobin in red blood cells", "Gets filtered out", "Stays in lungs"], ans: 1 },
+        { q: "The thin alveoli wall allows...", opts: ["Viruses only", "Quick gas diffusion", "Blood to leak out", "Air to go to stomach"], ans: 1 },
+        { q: "Moist alveoli surface helps gas exchange by...", opts: ["Cooling gases", "Helping gases dissolve and diffuse", "Trapping particles", "Speeding blood flow"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -420,8 +444,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "Which is a non-contact force?", opts: ["Friction", "Gravity", "Tension", "Normal"], ans: 1 },
-        { q: "Forces are measured in...", opts: ["Joules", "Newtons", "Meters", "Watts"], ans: 1 }
+        { q: "A force is...", opts: ["Only a push", "Only a pull", "Push, pull, or twist", "Movement"], ans: 2 },
+        { q: "Forces are measured in...", opts: ["Joules", "Newtons", "Meters", "Watts"], ans: 1 },
+        { q: "Which is a contact force?", opts: ["Gravity", "Magnetism", "Friction", "Electricity"], ans: 2 },
+        { q: "Friction opposes...", opts: ["Gravity", "Motion between surfaces", "Magnets", "Light"], ans: 1 },
+        { q: "Which is a non-contact force?", opts: ["Tension", "Normal force", "Gravity", "Applied force"], ans: 2 },
+        { q: "Tension is a force that...", opts: ["Pushes", "Pulls in ropes/cables", "Twists", "Heats"], ans: 1 },
+        { q: "Normal force is...", opts: ["The strongest force", "Surface pushing on object", "Same as gravity", "Invisible"], ans: 1 },
+        { q: "Which force needs no touching?", opts: ["All forces", "Contact forces", "Non-contact forces like gravity", "None"], ans: 2 },
+        { q: "Magnetic force is...", opts: ["Always pushing", "Contact force", "Non-contact force", "Same as friction"], ans: 2 },
+        { q: "Forces have...", opts: ["Only size", "Only direction", "Both size and direction", "Neither"], ans: 2 }
       ],
 
       cheatsheet: {
@@ -533,8 +565,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "With balanced forces, an object will...", opts: ["Accelerate", "Not change motion", "Always move", "Stop immediately"], ans: 1 },
-        { q: "If 10N pushes left and 15N pushes right, net force is...", opts: ["0N", "5N right", "25N right", "25N left"], ans: 1 }
+        { q: "Balanced forces have net force of...", opts: ["Large number", "Zero", "Always increasing", "Unpredictable"], ans: 1 },
+        { q: "With balanced forces, object will...", opts: ["Accelerate", "Not change motion", "Always move", "Stop immediately"], ans: 1 },
+        { q: "Unbalanced forces cause...", opts: ["No change", "Acceleration", "Rest", "Stability"], ans: 1 },
+        { q: "If 10N left + 15N right, net force is...", opts: ["0N", "5N right", "25N left", "10N down"], ans: 1 },
+        { q: "Newton's First Law states...", opts: ["F=ma", "Objects stay at rest unless unbalanced force acts", "All forces cancel", "Motion causes forces"], ans: 1 },
+        { q: "Inertia is...", opts: ["A force type", "Resistance to change in motion", "Same as weight", "Energy type"], ans: 1 },
+        { q: "A book on a table has...", opts: ["Unbalanced forces", "Balanced forces", "No forces", "Accelerating forces"], ans: 1 },
+        { q: "A car at constant 60 km/h has...", opts: ["Large unbalanced force", "Engine force > friction", "Balanced forces", "Acceleration"], ans: 2 },
+        { q: "When forces are balanced, acceleration is...", opts: ["Maximum", "Zero", "Increasing", "Unpredictable"], ans: 1 },
+        { q: "To change motion, you need...", opts: ["Balanced forces", "Unbalanced force", "Gravity only", "No force"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -662,7 +702,15 @@ const ScienceLessonApp = () => {
 
       quiz: [
         { q: "If car travels 100m in 5s, speed is...", opts: ["5 m/s", "20 m/s", "0.05 m/s", "500 m/s"], ans: 1 },
-        { q: "Flat line on distance-time graph means...", opts: ["Fast", "Slow", "Stationary", "Accelerating"], ans: 2 }
+        { q: "Speed formula is...", opts: ["Distance × Time", "Distance ÷ Time", "Time ÷ Distance", "Distance + Time"], ans: 1 },
+        { q: "Velocity is different from speed because it has...", opts: ["More value", "Direction", "Time", "Distance"], ans: 1 },
+        { q: "Acceleration means...", opts: ["Speeding up only", "Change in velocity", "Slowing down only", "Constant speed"], ans: 1 },
+        { q: "Flat line on distance-time graph means...", opts: ["Fast", "Slow", "Stationary", "Accelerating"], ans: 2 },
+        { q: "Steep slope on distance-time graph means...", opts: ["Slow speed", "Fast speed", "Stopped", "Acceleration"], ans: 1 },
+        { q: "Units for speed are...", opts: ["Newtons", "m/s or km/h", "Joules", "Watts"], ans: 1 },
+        { q: "Acceleration units are...", opts: ["m/s", "km/h", "m/s²", "m"], ans: 2 },
+        { q: "Average speed = ", opts: ["Total distance + time", "Total distance ÷ total time", "Time ÷ distance", "Constant speed"], ans: 1 },
+        { q: "Curved line on distance-time graph means...", opts: ["Constant speed", "Acceleration (changing speed)", "Stationary", "Moving backward"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -775,8 +823,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "How can you detect a magnetic field?", opts: ["Thermometer", "Compass or iron filings", "Light", "Sound"], ans: 1 },
-        { q: "Where is magnetic field strongest?", opts: ["Center", "Poles", "Everywhere equal", "Outside only"], ans: 1 }
+        { q: "A magnetic field is...", opts: ["Visible force", "Invisible region where magnetic force detected", "Type of magnet", "Energy"], ans: 1 },
+        { q: "How can you detect a magnetic field?", opts: ["Thermometer", "Compass or iron filings", "Light meter", "Ruler"], ans: 1 },
+        { q: "Magnetic field lines go from...", opts: ["South to North", "North to South", "Sideways", "Downward"], ans: 1 },
+        { q: "Where is magnetic field strongest?", opts: ["Center", "Poles", "Everywhere equal", "Outside only"], ans: 1 },
+        { q: "Field line density shows...", opts: ["Color", "Field strength (close = strong)", "Direction only", "Magnet size"], ans: 1 },
+        { q: "Iron filings align with...", opts: ["Gravity", "Magnetic field lines", "Electric field", "Heat"], ans: 1 },
+        { q: "Compass needle points toward...", opts: ["South", "Equator", "Magnetic North", "Sun"], ans: 2 },
+        { q: "Magnetic field lines...", opts: ["Cross each other", "Never cross", "Form squares", "Disappear"], ans: 1 },
+        { q: "Earth acts like a...", opts: ["Electromagnet only", "Giant bar magnet", "Small magnet", "No magnet"], ans: 1 },
+        { q: "You can see magnetic field using...", opts: ["Your eyes", "Microscope", "Iron filings pattern", "Magnet alone"], ans: 2 }
       ],
 
       cheatsheet: {
@@ -898,8 +954,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "N pole + S pole = ", opts: ["Repel", "Attract", "Nothing", "Stick"], ans: 1 },
-        { q: "Can magnets have only one pole?", opts: ["Yes", "No", "Sometimes", "Only electromagnets"], ans: 1 }
+        { q: "Opposite magnetic poles...", opts: ["Repel", "Attract", "Stay still", "Create new poles"], ans: 1 },
+        { q: "Same magnetic poles...", opts: ["Attract", "Repel", "Merge", "Neutralize"], ans: 1 },
+        { q: "Can a magnet have only one pole?", opts: ["Yes", "No", "Sometimes", "Only electromagnets"], ans: 1 },
+        { q: "If you cut a bar magnet in half, you get...", opts: ["One N, one S", "Two complete magnets with N and S", "No magnets", "Weaker magnet"], ans: 1 },
+        { q: "North pole is attracted to...", opts: ["South poles", "Other North poles", "All metals", "Nothing"], ans: 0 },
+        { q: "Magnetic force strength...", opts: ["Constant always", "Increases when closer", "Decreases with distance", "Both B and C"], ans: 3 },
+        { q: "A compass needle has...", opts: ["Only North pole", "Only South pole", "Both North and South", "No poles"], ans: 2 },
+        { q: "Earth's magnetic North pole is actually a...", opts: ["North pole", "South pole", "No pole", "Weak pole"], ans: 1 },
+        { q: "When N-N poles meet they...", opts: ["Stick together", "Push apart", "Turn", "Disappear"], ans: 1 },
+        { q: "Magnetic attraction/repulsion works...", opts: ["Only touching", "Even without touching", "Only in air", "Only in water"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -1061,8 +1125,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "Which nutrient works with calcium for strong bones?", opts: ["Vitamin A", "Vitamin C", "Vitamin D", "Iron"], ans: 2 },
-        { q: "What % of diet should be protein?", opts: ["10%", "20%", "50%", "70%"], ans: 1 }
+        { q: "What % of diet should be carbohydrates?", opts: ["20%", "30%", "50%", "80%"], ans: 2 },
+        { q: "What % of diet should be protein?", opts: ["10%", "20%", "50%", "70%"], ans: 1 },
+        { q: "Which nutrient works with calcium for bones?", opts: ["Vitamin A", "Vitamin C", "Vitamin D", "Iron"], ans: 2 },
+        { q: "Carbohydrates provide...", opts: ["Repair", "Energy", "Protection", "Flavor"], ans: 1 },
+        { q: "Proteins are used for...", opts: ["Energy only", "Growth and repair", "Insulation", "Movement"], ans: 1 },
+        { q: "Which is an unsaturated fat?", opts: ["Butter", "Olive oil", "Lard", "Cheese"], ans: 1 },
+        { q: "Vitamin C is found in...", opts: ["Meat", "Citrus fruits", "Bread", "Pasta"], ans: 1 },
+        { q: "Iron in diet helps with...", opts: ["Bones", "Blood health", "Teeth", "Skin"], ans: 1 },
+        { q: "How much water should you drink?", opts: ["2 glasses", "6-8 glasses", "10+ glasses", "1 glass"], ans: 1 },
+        { q: "Balanced diet means...", opts: ["All one food", "Right amounts of all nutrients", "No carbs", "Only proteins"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -1248,8 +1320,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "When your bicep contracts, your tricep...", opts: ["Contracts", "Relaxes", "Stays same", "Gets shorter"], ans: 1 },
-        { q: "What connects muscle to bone?", opts: ["Cartilage", "Tendon", "Ligament", "Joint"], ans: 1 }
+        { q: "How many bones in adult skeleton?", opts: ["100", "206", "300", "500"], ans: 1 },
+        { q: "Skeleton's main functions include...", opts: ["Breathing only", "Support, protection, movement", "Making blood only", "Thinking"], ans: 1 },
+        { q: "When bicep contracts, tricep...", opts: ["Contracts", "Relaxes", "Stays same", "Disappears"], ans: 1 },
+        { q: "What connects muscle to bone?", opts: ["Cartilage", "Tendon", "Ligament", "Joint"], ans: 1 },
+        { q: "What connects bone to bone?", opts: ["Tendon", "Ligament", "Cartilage", "Muscle"], ans: 1 },
+        { q: "Hinge joints allow...", opts: ["Full rotation", "One plane movement", "No movement", "Side to side"], ans: 1 },
+        { q: "Ball-and-socket joints are in...", opts: ["Elbow", "Knee", "Shoulder and hip", "Fingers"], ans: 2 },
+        { q: "Cartilage reduces...", opts: ["Movement", "Friction in joints", "Bone strength", "Blood flow"], ans: 1 },
+        { q: "Muscles work in...", opts: ["Groups of 3", "Antagonistic pairs", "Alone", "Teams of 5"], ans: 1 },
+        { q: "Bone marrow produces...", opts: ["Calcium", "Blood cells", "Protein", "Energy"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -1431,8 +1511,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "Which organisms produce their own food?", opts: ["Consumers", "Producers", "Decomposers", "All equally"], ans: 1 },
-        { q: "What is the first organism in every food chain?", opts: ["Carnivore", "Herbivore", "Plant", "Bacteria"], ans: 2 }
+        { q: "An ecosystem includes...", opts: ["Only animals", "Living + non-living + interactions", "Only plants", "Only decomposers"], ans: 1 },
+        { q: "Producers are...", opts: ["Animals eating plants", "Organisms making own food", "Consumers", "Decomposers"], ans: 1 },
+        { q: "First organism in food chain is...", opts: ["Carnivore", "Herbivore", "Plant", "Bacteria"], ans: 2 },
+        { q: "Energy transferred to next level is...", opts: ["50%", "10%", "90%", "All"], ans: 1 },
+        { q: "Primary consumers eat...", opts: ["Other animals", "Plants", "Decomposers", "Soil"], ans: 1 },
+        { q: "Secondary consumers eat...", opts: ["Plants", "Primary consumers", "Decomposers", "Soil"], ans: 1 },
+        { q: "Decomposers break down...", opts: ["Live animals", "Dead matter", "Plants", "Soil"], ans: 1 },
+        { q: "Food web is...", opts: ["One chain", "Interconnected chains", "Only plants", "Impossible"], ans: 1 },
+        { q: "Why fewer carnivores than herbivores?", opts: ["Less hunting", "Less energy at top level", "They're hidden", "Don't need food"], ans: 1 },
+        { q: "Solar energy captured by...", opts: ["Consumers", "Decomposers", "Producers (plants)", "Animals"], ans: 2 }
       ],
 
       cheatsheet: {
@@ -1579,8 +1667,16 @@ const ScienceLessonApp = () => {
       ],
 
       quiz: [
-        { q: "What is a physical adaptation?", opts: ["Learning behavior", "Feature like thick fur", "Migration", "Hunting skill"], ans: 1 },
-        { q: "Why do some animals hibernate?", opts: ["For fun", "To save energy in winter", "To escape predators", "To find mates"], ans: 1 }
+        { q: "Species can breed and produce...", opts: ["Different species", "Sterile offspring", "Fertile offspring", "Mutations"], ans: 2 },
+        { q: "Adaptation is a feature helping...", opts: ["Animals play", "Organisms survive in environment", "Grow faster", "Look pretty"], ans: 1 },
+        { q: "Physical adaptation example is...", opts: ["Migration", "Thick fur or camouflage", "Learning", "Playing"], ans: 1 },
+        { q: "Behavioral adaptation example is...", opts: ["Long neck", "Sharp teeth", "Migration or hibernation", "Camouflage"], ans: 2 },
+        { q: "Natural selection means...", opts: ["Picking best animals", "Better adaptations survive more", "All survive equally", "Worst survive"], ans: 1 },
+        { q: "Hibernation is a...", opts: ["Physical adaptation", "Behavioral adaptation", "Diet adaptation", "Non-adaptation"], ans: 1 },
+        { q: "Camouflage helps with...", opts: ["Running", "Hiding and hunting", "Swimming", "Thinking"], ans: 1 },
+        { q: "Thick fur is adaptation for...", opts: ["Swimming", "Warm climates", "Cold environments", "Hiding"], ans: 2 },
+        { q: "Adaptations develop over...", opts: ["Days", "Months", "Many generations (evolution)", "Never"], ans: 2 },
+        { q: "Why organisms have specific adaptations?", opts: ["Random", "Fit their environment", "Look nice", "Teacher decides"], ans: 1 }
       ],
 
       cheatsheet: {
@@ -1763,7 +1859,15 @@ const ScienceLessonApp = () => {
 
       quiz: [
         { q: "What is melting?", opts: ["Gas to liquid", "Solid to liquid", "Liquid to gas", "Solid to gas"], ans: 1 },
-        { q: "What is density?", opts: ["Weight", "Mass/Volume", "Hardness", "Temperature"], ans: 1 }
+        { q: "What is boiling?", opts: ["Heating slowly", "Liquid to gas", "Solid melting", "Gas cooling"], ans: 1 },
+        { q: "Melting point of ice is...", opts: ["100°C", "50°C", "0°C", "-10°C"], ans: 2 },
+        { q: "Boiling point of water is...", opts: ["50°C", "0°C", "100°C", "150°C"], ans: 2 },
+        { q: "Density formula is...", opts: ["Mass + Volume", "Mass × Volume", "Mass ÷ Volume", "Volume ÷ Mass"], ans: 2 },
+        { q: "Objects with density < water...", opts: ["Sink", "Float", "Mix with water", "Dissolve"], ans: 1 },
+        { q: "Solids have...", opts: ["No fixed shape", "Fixed shape and volume", "Variable volume", "No volume"], ans: 1 },
+        { q: "Gases have...", opts: ["Fixed shape", "Fixed volume", "Fill container", "Small volume"], ans: 2 },
+        { q: "Condensation is...", opts: ["Gas to liquid", "Liquid to gas", "Cooling slowly", "Making dense"], ans: 0 },
+        { q: "Which material is best for wiring?", opts: ["Glass", "Rubber", "Copper (conducts electricity)", "Plastic"], ans: 2 }
       ],
 
       cheatsheet: {
