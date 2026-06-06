@@ -612,12 +612,26 @@ const ScienceLessonApp = () => {
       `,
 
       flashcards: [
-        { q: "What are balanced forces?", a: "Equal size, opposite directions - net force = 0" },
-        { q: "What happens with balanced forces?", a: "No acceleration - object stays at rest or constant speed" },
-        { q: "What are unbalanced forces?", a: "Unequal forces - net force ≠ 0" },
-        { q: "What happens with unbalanced forces?", a: "Acceleration occurs - speed up, slow down, or change direction" },
-        { q: "State Newton's First Law", a: "Objects at rest stay at rest, objects in motion stay in motion unless unbalanced force acts" },
-        { q: "What is inertia?", a: "Resistance of objects to change in motion" }
+        { q: "Balanced forces?", a: "Equal, opposite - net = 0" },
+        { q: "With balanced forces?", a: "No acceleration" },
+        { q: "Unbalanced forces?", a: "Unequal - net ≠ 0" },
+        { q: "With unbalanced?", a: "Acceleration occurs" },
+        { q: "Newton's 1st Law?", a: "Objects stay at rest unless force acts" },
+        { q: "Inertia?", a: "Resistance to motion change" },
+        { q: "Net force definition?", a: "Sum of all forces" },
+        { q: "Calculate net force?", a: "Add forces (consider direction)" },
+        { q: "Book on table?", a: "Balanced forces" },
+        { q: "Car constant speed?", a: "Balanced forces" },
+        { q: "Terminal velocity?", a: "Balanced (gravity = air resistance)" },
+        { q: "Skydiver accelerating?", a: "Unbalanced (gravity > resistance)" },
+        { q: "Balanced = acceleration?", a: "No, zero acceleration" },
+        { q: "Unbalanced = acceleration?", a: "Yes, non-zero" },
+        { q: "Proof of 1st Law?", a: "Hockey puck slides on ice" },
+        { q: "Need unbalanced force?", a: "To start or change motion" },
+        { q: "F = ma means?", a: "Force = mass × acceleration" },
+        { q: "Friction balanced by?", a: "Applied force (at constant speed)" },
+        { q: "Pushing harder?", a: "Unbalances forces, accelerates" },
+        { q: "Same forces opposite?", a: "Balanced, no change" }
       ],
 
       quiz: [
@@ -748,12 +762,26 @@ const ScienceLessonApp = () => {
       `,
 
       flashcards: [
-        { q: "What is speed?", a: "Distance traveled per unit time (scalar - no direction)" },
-        { q: "What is velocity?", a: "Speed with direction (vector - magnitude + direction)" },
-        { q: "Speed formula", a: "Speed = Distance ÷ Time" },
-        { q: "What is acceleration?", a: "Rate of change of velocity (can be speeding up, slowing down, or changing direction)" },
-        { q: "What does flat line mean on distance-time graph?", a: "Object is stationary (not moving)" },
-        { q: "What does steep slope mean on distance-time graph?", a: "Object is moving fast" }
+        { q: "Speed?", a: "Distance per unit time (scalar)" },
+        { q: "Velocity?", a: "Speed with direction (vector)" },
+        { q: "Speed formula?", a: "Distance ÷ Time" },
+        { q: "Acceleration?", a: "Change in velocity per time" },
+        { q: "Flat line D-T graph?", a: "Stationary" },
+        { q: "Steep slope D-T?", a: "Fast motion" },
+        { q: "Curved D-T graph?", a: "Accelerating" },
+        { q: "Horizontal V-T graph?", a: "Constant velocity" },
+        { q: "Sloped V-T graph?", a: "Acceleration" },
+        { q: "Area under V-T =?", a: "Distance traveled" },
+        { q: "Average speed =?", a: "Total distance ÷ total time" },
+        { q: "Instantaneous speed =?", a: "Speed at exact moment" },
+        { q: "Positive acceleration?", a: "Speeding up" },
+        { q: "Negative acceleration?", a: "Slowing down (deceleration)" },
+        { q: "Zero velocity =?", a: "Object stationary" },
+        { q: "Changing direction =?", a: "Acceleration" },
+        { q: "Can have acceleration with constant speed?", a: "Yes, if changing direction" },
+        { q: "Relative motion =?", a: "Motion depends on reference frame" },
+        { q: "Reference frame important?", a: "Yes, motion is relative" },
+        { q: "Escape velocity =?", a: "Speed needed to escape planet" }
       ],
 
       quiz: [
