@@ -17,7 +17,7 @@ const api = async (params) => {
 
 export const loadGoogleAPI = async () => {
   // Verify the backend is reachable and service account works
-  const data = await api({ action: 'getFolderId', name: 'math', parent: FOLDER_ID });
+  await api({ action: 'getFolderId', name: 'math', parent: FOLDER_ID });
   console.log('✓ Drive API ready via service account');
   return true;
 };
