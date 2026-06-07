@@ -188,15 +188,15 @@ export const useGamification = () => {
    * Record lesson completion
    */
   const completedLesson = (subject, level, quizScore = null) => {
+    let basePoints = 50; // Base points for lesson
+    if (quizScore === 100) basePoints += 50; // Bonus for perfect score
+    else if (quizScore >= 80) basePoints += 25; // Bonus for good score
+
     setStats(prev => {
       const newSubjects = new Set(prev.subjectsExplored);
       const newLevels = new Set(prev.levelsExplored);
       newSubjects.add(subject);
       newLevels.add(level);
-
-      let basePoints = 50; // Base points for lesson
-      if (quizScore === 100) basePoints += 50; // Bonus for perfect score
-      else if (quizScore >= 80) basePoints += 25; // Bonus for good score
 
       return {
         ...prev,
