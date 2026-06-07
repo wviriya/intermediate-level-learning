@@ -1,113 +1,58 @@
-/**
- * Google Drive Client
- * Handles fetching lessons from Google Drive folder structure
- */
-
 const FOLDER_ID = '1_bwnA7PRSg2w4ZaqQ79Gq96_G0iUkXA8';
-const API_KEY = 'AIzaSyA9kqgH0kLIH1sIGLBzyJqEVZctr9BBsig';
 
-/**
- * Load Google API client
- */
-export const loadGoogleAPI = async () => {
-  return new Promise((resolve, reject) => {
-    if (window.gapi) {
-      window.gapi.load('client', async () => {
-        try {
-          await window.gapi.client.init({
-            apiKey: API_KEY,
-            discoveryDocs: [
-              'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest'
-            ]
-          });
-          resolve(true);
-        } catch (err) {
-          reject(err);
-        }
-      });
-    } else {
-      reject(new Error('Google API not loaded'));
-    }
-  });
+const API_BASE = process.env.NODE_ENV === 'development' ? 'http://localhost:3001' : '';
+
+const api = async (params) => {
+  const url = new URL('/api/drive', API_BASE || window.location.origin);
+  for (const [k, v] of Object.entries(params)) {
+    url.searchParams.set(k, v);
+  }
+  const res = await fetch(url.toString());
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({ error: res.statusText }));
+    throw new Error(body.error || `HTTP ${res.status}`);
+  }
+  return res.json();
 };
 
-/**
- * Get folder ID by name
- */
+export const loadGoogleAPI = async () => {
+  // Verify the backend is reachable and service account works
+  const data = await api({ action: 'getFolderId', name: 'math', parent: FOLDER_ID });
+  console.log('✓ Drive API ready via service account');
+  return true;
+};
+
 export const getFolderId = async (folderName, parentFolderId = FOLDER_ID) => {
   try {
-    const response = await window.gapi.client.drive.files.list({
-      q: `name='${folderName}' and mimeType='application/vnd.google-apps.folder' and parents='${parentFolderId}' and trashed=false`,
-      spaces: 'drive',
-      pageSize: 1,
-      fields: 'files(id, name)'
-    });
-
-    if (response.result.files && response.result.files.length > 0) {
-      return response.result.files[0].id;
-    }
-    return null;
+    const data = await api({ action: 'getFolderId', name: folderName, parent: parentFolderId });
+    return data.id || null;
   } catch (err) {
-    console.error(`Error finding folder ${folderName}:`, err);
+    console.warn(`getFolderId(${folderName}):`, err.message);
     return null;
   }
 };
 
-/**
- * List files in a folder
- */
 export const listFilesInFolder = async (folderId) => {
   try {
-    const response = await window.gapi.client.drive.files.list({
-      q: `parents='${folderId}' and trashed=false`,
-      spaces: 'drive',
-      pageSize: 100,
-      fields: 'files(id, name, mimeType, webContentLink, webViewLink)'
-    });
-
-    return response.result.files || [];
+    const data = await api({ action: 'listFiles', folderId });
+    return data.files || [];
   } catch (err) {
-    console.error('Error listing files:', err);
+    console.warn(`listFilesInFolder(${folderId}):`, err.message);
     return [];
   }
 };
 
-/**
- * Get file content (JSON)
- */
 export const getFileContent = async (fileId) => {
   try {
-    // Direct fetch using Google Drive export URL (simplest & most reliable)
-    const exportUrl = `https://www.googleapis.com/drive/v3/files/${fileId}?alt=media&key=${API_KEY}`;
-
-    console.log(`Fetching file ${fileId} from: ${exportUrl.substring(0, 80)}...`);
-
-    const response = await fetch(exportUrl);
-
-    if (!response.ok) {
-      console.error(`HTTP ${response.status} when fetching file ${fileId}`);
-      return null;
-    }
-
-    const text = await response.text();
-    console.log(`Got response: ${text.substring(0, 100)}...`);
-
-    const parsed = JSON.parse(text);
-    console.log(`Successfully parsed JSON for file ${fileId}`);
-    return parsed;
-
+    return await api({ action: 'getFile', fileId });
   } catch (err) {
-    console.error(`Error getting file content for ${fileId}:`, err.message);
+    console.warn(`getFileContent(${fileId}):`, err.message);
     return null;
   }
 };
 
-/**
- * Get lesson by subject and level
- */
 export const getLessonsBySubjectAndLevel = async (subject, level) => {
   try {
-    // Navigate folder structure: subject -> level
     const subjectFolderId = await getFolderId(subject, FOLDER_ID);
     if (!subjectFolderId) {
       console.warn(`Subject folder not found: ${subject}`);
@@ -116,156 +61,67 @@ export const getLessonsBySubjectAndLevel = async (subject, level) => {
 
     const levelFolderId = await getFolderId(level, subjectFolderId);
     if (!levelFolderId) {
-      console.warn(`Level folder not found: ${level}`);
+      console.warn(`Level folder not found: ${level} under ${subject}`);
       return [];
     }
 
-    // List all JSON files in level folder
     const files = await listFilesInFolder(levelFolderId);
-    console.log(`Found ${files.length} files in ${subject}/${level}:`, files.map(f => f.name));
+    console.log(`Files in ${subject}/${level}:`, files.map(f => f.name));
 
     const jsonFiles = files.filter(f => f.name.endsWith('.json'));
-    console.log(`Found ${jsonFiles.length} JSON files`);
 
-    // Fetch content for each file
     const lessons = [];
     for (const file of jsonFiles) {
-      try {
-        console.log(`Loading content for ${file.name}...`);
-        const content = await getFileContent(file.id);
-        if (content) {
-          console.log(`Successfully loaded ${file.name}:`, content);
-          lessons.push({
-            ...content,
-            googleDriveId: file.id,
-            googleDriveLink: file.webViewLink
-          });
-        } else {
-          console.warn(`No content returned for ${file.name}`);
-        }
-      } catch (err) {
-        console.error(`Error loading lesson ${file.name}:`, err);
+      console.log(`Loading ${file.name}...`);
+      const content = await getFileContent(file.id);
+      if (content) {
+        lessons.push({ ...content, googleDriveId: file.id, googleDriveLink: file.webViewLink });
       }
     }
 
-    console.log(`Total lessons loaded: ${lessons.length}`);
-    // Sort by week
+    console.log(`✓ Loaded ${lessons.length} lessons from Drive for ${subject}/${level}`);
     return lessons.sort((a, b) => a.week - b.week);
   } catch (err) {
-    console.error('Error getting lessons:', err);
+    console.error('getLessonsBySubjectAndLevel:', err);
     return [];
   }
 };
 
-/**
- * Get all available subjects
- */
 export const getAvailableSubjects = async () => {
   try {
-    const folders = await listFilesInFolder(FOLDER_ID);
-    return folders
-      .filter(f => f.mimeType === 'application/vnd.google-apps.folder')
-      .map(f => f.name)
-      .sort();
+    const files = await listFilesInFolder(FOLDER_ID);
+    return files.filter(f => f.mimeType === 'application/vnd.google-apps.folder').map(f => f.name).sort();
   } catch (err) {
-    console.error('Error getting subjects:', err);
+    console.warn('getAvailableSubjects:', err.message);
     return [];
   }
 };
 
-/**
- * Get levels available for a subject
- */
 export const getAvailableLevels = async (subject) => {
   try {
     const subjectFolderId = await getFolderId(subject, FOLDER_ID);
     if (!subjectFolderId) return [];
-
-    const folders = await listFilesInFolder(subjectFolderId);
-    return folders
-      .filter(f => f.mimeType === 'application/vnd.google-apps.folder')
-      .map(f => f.name)
-      .sort();
+    const files = await listFilesInFolder(subjectFolderId);
+    return files.filter(f => f.mimeType === 'application/vnd.google-apps.folder').map(f => f.name).sort();
   } catch (err) {
-    console.error('Error getting levels:', err);
+    console.warn('getAvailableLevels:', err.message);
     return [];
   }
 };
 
-/**
- * Search lessons by keyword
- */
 export const searchLessons = async (keyword) => {
   try {
-    const response = await window.gapi.client.drive.files.list({
-      q: `name contains '${keyword}' and mimeType!='application/vnd.google-apps.folder' and parents in '${FOLDER_ID}' and trashed=false`,
-      spaces: 'drive',
-      pageSize: 50,
-      fields: 'files(id, name, parents)'
-    });
-
-    const lessons = [];
-    for (const file of response.result.files || []) {
-      try {
-        const content = await getFileContent(file.id);
-        if (content) {
-          lessons.push(content);
-        }
-      } catch (err) {
-        console.error(`Error loading ${file.name}:`, err);
-      }
-    }
-
-    return lessons;
+    const data = await api({ action: 'search', keyword, folderId: FOLDER_ID });
+    return data.lessons || [];
   } catch (err) {
-    console.error('Error searching lessons:', err);
+    console.warn('searchLessons:', err.message);
     return [];
-  }
-};
-
-/**
- * Get lesson statistics
- */
-export const getLessonStats = async () => {
-  try {
-    const subjects = await getAvailableSubjects();
-    const stats = {
-      totalSubjects: subjects.length,
-      subjects: {}
-    };
-
-    for (const subject of subjects) {
-      const levels = await getAvailableLevels(subject);
-      let totalLessons = 0;
-
-      for (const level of levels) {
-        const lessons = await getLessonsBySubjectAndLevel(subject, level);
-        totalLessons += lessons.length;
-      }
-
-      stats.subjects[subject] = {
-        levels: levels.length,
-        lessons: totalLessons
-      };
-    }
-
-    return stats;
-  } catch (err) {
-    console.error('Error getting stats:', err);
-    return {};
   }
 };
 
 const googleDriveClientExports = {
-  loadGoogleAPI,
-  getFolderId,
-  listFilesInFolder,
-  getFileContent,
-  getLessonsBySubjectAndLevel,
-  getAvailableSubjects,
-  getAvailableLevels,
-  searchLessons,
-  getLessonStats
+  loadGoogleAPI, getFolderId, listFilesInFolder, getFileContent,
+  getLessonsBySubjectAndLevel, getAvailableSubjects, getAvailableLevels, searchLessons
 };
 
 export default googleDriveClientExports;
