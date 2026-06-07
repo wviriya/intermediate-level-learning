@@ -3,7 +3,7 @@ import { Target, Eye, ChevronDown, ChevronUp, Home } from 'lucide-react';
 import { loadLesson, randomizeQuestions, randomizeFlashcards } from './utils/contentLoader';
 import { useGamification, GamificationDisplay } from './Gamification';
 
-const TutorApp = ({ subject, level, lessonFile, onBack }) => {
+const TutorApp = ({ subject, level, lessonFile, lessonData, onBack }) => {
   const gamification = useGamification();
   const [lesson, setLesson] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,8 @@ const TutorApp = ({ subject, level, lessonFile, onBack }) => {
       setLoading(true);
       setError(null);
       try {
-        const data = await loadLesson(subject, level, lessonFile);
+        // Use pre-fetched lesson data from Google Drive if available
+        const data = lessonData || await loadLesson(subject, level, lessonFile);
         setLesson(data);
         setRandomizedQuestions(randomizeQuestions(data.quiz));
         setRandomizedFlashcards(randomizeFlashcards(data.flashcards));

@@ -26,6 +26,7 @@ function App() {
           subject={selectedLesson.subject}
           level={selectedLesson.level}
           lessonFile={selectedLesson.lessonFile}
+          lessonData={selectedLesson.lessonData}
         />
       </div>
     );

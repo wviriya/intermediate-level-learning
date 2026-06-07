@@ -66,11 +66,12 @@ const SubjectSelector = ({ onSelect }) => {
     }
   }, [selectedSubject, selectedLevel, loadLessons, apiReady]);
 
-  const handleLessonSelect = (lessonId) => {
+  const handleLessonSelect = (lesson) => {
     onSelect({
       subject: selectedSubject,
       level: selectedLevel,
-      lessonFile: lessonId
+      lessonFile: lesson.id,
+      lessonData: lesson
     });
   };
 
@@ -186,7 +187,7 @@ const SubjectSelector = ({ onSelect }) => {
                 {lessons.map((lesson) => (
                   <button
                     key={lesson.id}
-                    onClick={() => handleLessonSelect(lesson.id)}
+                    onClick={() => handleLessonSelect(lesson)}
                     className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all text-left
                              border-2 border-transparent hover:border-indigo-400 hover:bg-indigo-50"
                   >
